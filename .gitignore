@@ -3,6 +3,6 @@
 target/
 
 *.properties
-application-dev.properties
+#application-dev.properties
 hello.txt
 
