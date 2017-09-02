@@ -19,6 +19,11 @@ public class Result<T> implements Serializable {
         this.msg = msg;
     }
 
+    public Result(String code, T data) {
+        this(code);
+        this.data = data;
+    }
+
     public Result(String code, String msg, T data) {
         this(code, msg);
         this.data = data;
@@ -35,6 +40,10 @@ public class Result<T> implements Serializable {
 
     public static Result setCodeMsg(String code, String msg) {
         return new Result(code, msg);
+    }
+
+    public static Result setCodeData(String code, Object data) {
+        return new Result(code, data);
     }
 
     public static Result setCodeMsgData(String code, String msg, Object data) {
