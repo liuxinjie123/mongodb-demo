@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface UserRepository extends MongoRepository<User, String> {
 
-    List<User> findUsersByName(String name);
+    List<User> findUsersByNameOrderByCreateTimeDesc(String name);
 
 
 

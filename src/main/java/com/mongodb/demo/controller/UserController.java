@@ -7,6 +7,8 @@ import com.mongodb.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -19,6 +21,8 @@ public class UserController {
         User user = new User();
         user.setName(name);
         user.setPhone(phone);
+        user.setCreateTime(LocalDateTime.now());
+        user.setLastUpdateTime(LocalDateTime.now());
         userService.add(user);
         return Result.setCodeMsgData(Constants.RETURN_OK_CODE, Constants.QUERY_OK_MSG, user.getId());
     }

@@ -6,6 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Document(collection = "users")
 @Data
@@ -15,5 +16,7 @@ public class User implements Serializable {
     private String id;
     private String name;
     private String phone;
+    private LocalDateTime createTime;
+    private LocalDateTime lastUpdateTime;
 
 }
