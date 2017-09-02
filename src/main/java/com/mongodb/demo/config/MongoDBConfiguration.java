@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 import java.net.UnknownHostException;
 
 @Configuration
-@EnableMongoRepositories({"com.mongodb.demo.repository", "com.mongodb.demo.model"})
+@EnableMongoRepositories({"com.mongodb.demo.repository"})
 @ComponentScan({"com.mongodb.demo.service"})
 public class MongoDBConfiguration {
     @Value("${db.host}")
