@@ -1,6 +1,7 @@
 package com.mongodb.demo.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mongodb.demo.config.support.Java8TimeModule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.boot.web.servlet.ErrorPage;
@@ -10,14 +11,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.config.annotation.*;
 
+import javax.annotation.PostConstruct;
+
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.mongodb.demo.controller")
+@ComponentScan("com.mongodb.demo")
 public class WebConfiguration extends WebMvcConfigurerAdapter {
-
     @Autowired
     protected ObjectMapper objectMapper;
-
 
     @Bean
     public EmbeddedServletContainerCustomizer containerCustomizer() {
@@ -28,11 +29,10 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
         };
     }
 
-//
-//    @PostConstruct
-//    private void jacksonConfig() {
-//        objectMapper.registerModule(new Java8TimeModule());
-//    }
+    @PostConstruct
+    private void jacksonConfig() {
+        objectMapper.registerModule(new Java8TimeModule());
+    }
 
 //    @Bean(name = "validator")
 //    public Validator createBeanValidator() {

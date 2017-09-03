@@ -5,7 +5,7 @@ import com.mongodb.demo.form.user.validate.AddUser;
 import com.mongodb.demo.form.user.validate.UpdateUser;
 import com.mongodb.demo.model.common.Constants;
 import com.mongodb.demo.model.common.Result;
-import com.mongodb.demo.service.UserService;
+import com.mongodb.demo.service.api.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
